@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBar from './searchBar';
 
 class Navbar extends Component {
     render() {
@@ -9,6 +10,7 @@ class Navbar extends Component {
                         <i class="fas fa-bars"></i>
                     </li>
                 </ul>
+                <SearchBar />
             </div>
         );
     }
