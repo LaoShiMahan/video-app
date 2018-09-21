@@ -1,33 +1,21 @@
 import {
-    GET_VIDEO,
-    GET_REACT_VIDEOS
+    GET_VIDEOS
 } from './types';
 
 import axios from 'axios';
 
-export function fetchVideo() {
+export function fetchVideos() {
     return function(dispatch) {
-        axios.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails%2Cstatus&playlistId=UUK8sQmJBp8GCxrOtXWBpyEA&key=AIzaSyCK5_-pnmgJEudaLhHl0EDvyvi-JAQ7E-g")
+        axios.get("https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=javascript+react&type=video&videoDefinition=high&maxResults=1&key=AIzaSyCK5_-pnmgJEudaLhHl0EDvyvi-JAQ7E-g")
             .then(response => {
                 dispatch({
-                    type: GET_VIDEO,
+                    type: GET_VIDEOS,
                     payload: response.data.items
                 });
             });
     }
 }
 
-export function fetchReactVideos() {
-    return function(dispatch) {
-        axios.get("https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=javascript+react&type=video&videoDefinition=high&key=AIzaSyCK5_-pnmgJEudaLhHl0EDvyvi-JAQ7E-g")
-            .then(response => {
-                console.log(response.data.items)
-                dispatch({
-                    type: GET_REACT_VIDEOS,
-                    payload: response.data.items
-                });
-            });
-    }
-}
+// `https://www.googleapis.com/youtube/v3/search?part=snippet&order=${SEARCH_BY}&q=${QUERY_BY}&type=${video}&videoDefinition=high&maxResults=${NUM_RESULTS}&key=AIzaSyCK5_-pnmgJEudaLhHl0EDvyvi-JAQ7E-g`
 
 // API KEY => AIzaSyCK5_-pnmgJEudaLhHl0EDvyvi-JAQ7E-g

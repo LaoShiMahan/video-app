@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Video from './video';
-import ReactVideos from './reactVideos';
 
 export default class App extends Component {
     render() {
