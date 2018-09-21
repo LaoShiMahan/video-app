@@ -14,11 +14,10 @@ class Video extends Component {
 
     renderVideos = (opts) => {
         let videos = this.props.videos.map((video, index) => {
-            console.log(video)
             return (
                 <div className="video" key={index}>
-                    <span>{ video.snippet.title }</span>
-                    <span>{ video.snippet.description }</span>
+                    <span className="video__title">{ video.snippet.title }</span>
+                    <span className="video__description">{ video.snippet.description }</span>
                     <YouTube videoId={ video.id.videoId } opts={ opts } onReady={ this._onReady } />
                 </div>
             )
@@ -28,16 +27,16 @@ class Video extends Component {
 
     render() {   
 
-        const opts = {
-            height: "390",
-            width: "640",
+        const opts = { // Contains default video options
+            height: "195",
+            width: "320",
             playerVars: { // https://developers.google.com/youtube/player_parameters
             autoplay: 0
             }
         };
 
         return (
-            <div>
+            <div className="videos">
                 {
                     this.renderVideos(opts)
                 }
