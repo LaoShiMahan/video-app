@@ -13,8 +13,7 @@ class Video extends Component {
     }
 
     renderVideos = (opts) => {
-        let videos = this.props.videos.map((video, index) => {
-            console.log(video)
+        let videos = this.props.reactVideos.map((video, index) => {
             return <YouTube videoId={video.id.videoId} opts={opts} onReady={this._onReady} key={index} />
         })
         return videos;
@@ -32,11 +31,6 @@ class Video extends Component {
 
         return (
             <div>
-                <YouTube
-                    videoId="2g811Eo7K8U"
-                    opts={opts}
-                    onReady={this._onReady}
-                />
                 {
                     this.renderVideos(opts)
                 }
@@ -46,8 +40,8 @@ class Video extends Component {
 }
 
 const mapStateToProps = (state) => {
-    let { videos } = state.videos
-    return { videos };
+    let { reactVideos } = state.reactVideos
+    return { reactVideos };
 }
 
 Video = connect(mapStateToProps, actions)(Video);
