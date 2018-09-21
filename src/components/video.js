@@ -5,7 +5,7 @@ import YouTube from 'react-youtube';
 
 class Video extends Component {
     componentDidMount() {
-        this.props.fetchVideo();
+        this.props.fetchReactVideos();
     }
 
     __onReady = (event) => {
@@ -14,7 +14,8 @@ class Video extends Component {
 
     renderVideos = (opts) => {
         let videos = this.props.videos.map((video, index) => {
-            return <YouTube videoId={video.contentDetails.videoId} opts={opts} onReady={this._onReady} key={index} />
+            console.log(video)
+            return <YouTube videoId={video.id.videoId} opts={opts} onReady={this._onReady} key={index} />
         })
         return videos;
     }
