@@ -1,0 +1,22 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 4rem;
+    background-color: #1A1A1A;
+    margin: 0;
+    ul {
+        list-style-type: none;
+        height: 100%;
+    }
+
+    li {
+        height: 100%;
+    }
+}
+
+.hamburger {
+    color: whitesmoke;
+    font-size: 3rem;
+    margin-left: 10%;
+}
