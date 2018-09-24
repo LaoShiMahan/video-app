@@ -4,9 +4,9 @@ import {
 
 import axios from 'axios';
 
-export function fetchVideos() {
+export function fetchVideos(query) {
     return function(dispatch) {
-        axios.get("https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=javascript+react&type=video&videoDefinition=high&maxResults=1&key=AIzaSyCK5_-pnmgJEudaLhHl0EDvyvi-JAQ7E-g")
+        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${query}&type=video&videoDefinition=high&maxResults=5&key=AIzaSyCK5_-pnmgJEudaLhHl0EDvyvi-JAQ7E-g`)
             .then(response => {
                 dispatch({
                     type: GET_VIDEOS,

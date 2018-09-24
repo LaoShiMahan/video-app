@@ -4,10 +4,6 @@ import * as actions from '../actions';
 import YouTube from 'react-youtube';
 
 class Video extends Component {
-    componentDidMount() {
-        this.props.fetchVideos();
-    }
-
     __onReady = (event) => {
         event.target.pauseVideo();
     }

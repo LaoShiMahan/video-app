@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class SearchBar extends Component {
     constructor() {
         super()
         this.state = {
-            searchValue: ""
+            query: ""
         }
     }
+
     handleFormSubmit = (event) => {
         event.preventDefault();
-        let searchValue = document.getElementById("search-bar").value.split(" ").join("+");
+        let query = document.getElementById("search-bar").value.split(" ").join("+");
         document.getElementById("search-bar").value = "";
-        this.setState({ searchValue: searchValue });
+        this.setState({ query: query });
+        this.props.fetchVideos(query);
     }
+
+    
 
     render() {
         console.log(this.state.searchValue)
@@ -37,5 +43,7 @@ class SearchBar extends Component {
         );
     }
 }
+
+SearchBar = connect(null, actions)(SearchBar);
 
 export default SearchBar;
