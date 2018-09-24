@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Video from './video';
+import Videos from './videos';
 import Navbar from './navbar';
+import RelatedVideos from './relatedVideos';
 
 
 export default class App extends Component {
@@ -9,7 +10,8 @@ export default class App extends Component {
         <div className='app'>
             <h1>Video App</h1>
             <Navbar/>
-            <Video />
+            <Videos />
+            <RelatedVideos />
         </div>
         );
     }

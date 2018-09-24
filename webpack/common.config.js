@@ -42,6 +42,7 @@ module.exports = {
     new SplitChunksPlugin({
       name: ['app', 'vendor'],
       minChunks: Infinity,
+      maxAsyncRequests: 5
     }),
   ],
 };

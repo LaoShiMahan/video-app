@@ -3,17 +3,19 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    videos: []
+    initialVideos: [],
+    relatedVideos: []
 }
 
 export default function(state = INITIAL_STATE, action) {
     switch(action.type) {
         case GET_VIDEOS:
-            const videos = action.payload
+            const videos = action.payload;
             return {
                 ...state,
-                videos
+                ...videos
             };
+            break;
         default:
             return state;
     }

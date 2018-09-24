@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
 import YouTube from 'react-youtube';
 
-class Video extends Component {
+class Videos extends Component {
     __onReady = (event) => {
         event.target.pauseVideo();
     }
 
     renderVideos = (opts) => {
-        let videos = this.props.videos.map((video, index) => {
+        let videos = this.props.initialVideos.map((video, index) => {
             return (
-                <div className="video" key={index}>
+                <div className="video" key={ index }>
                     <span className="video__title">{ video.snippet.title }</span>
                     <span className="video__description">{ video.snippet.description }</span>
                     <YouTube videoId={ video.id.videoId } opts={ opts } onReady={ this._onReady } />
@@ -42,10 +41,10 @@ class Video extends Component {
 }
 
 const mapStateToProps = (state) => {
-    let { videos } = state.videos
-    return { videos };
+    let { initialVideos } = state.videos
+    return { initialVideos };
 }
 
-Video = connect(mapStateToProps, actions)(Video);
+Videos = connect(mapStateToProps)(Videos);
 
-export default Video;
+export default Videos;

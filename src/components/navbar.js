@@ -7,7 +7,7 @@ class Navbar extends Component {
             <div className="navbar">
                 <ul>
                     <li className="hamburger">
-                        <i class="fas fa-bars"></i>
+                        <i className="fas fa-bars"></i>
                     </li>
                 </ul>
                 <SearchBar />

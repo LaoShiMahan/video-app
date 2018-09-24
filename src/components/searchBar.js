@@ -21,7 +21,6 @@ class SearchBar extends Component {
     
 
     render() {
-        console.log(this.state.searchValue)
         return (
             <form
                 className="search-bar"
